@@ -40,6 +40,7 @@ urlpatterns = [
     path('blog/tinymce/', include('tinymce.urls')),
     path('blog/accounts/', include('allauth.urls'))
 ]
+#test comment
 '''
 urlpatterns = [
     path('admin/', admin.site.urls),
