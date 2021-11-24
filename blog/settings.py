@@ -37,7 +37,8 @@ INSTALLED_APPS = [
 
     'marketing',
     'posts',
-    'orgpages'
+    'orgpages',
+    'mygallery'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
