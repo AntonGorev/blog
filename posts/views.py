@@ -9,6 +9,7 @@ from .forms import CommentForm, PostForm
 from .models import Post, Author, PostView
 from marketing.forms import EmailSignupForm
 from marketing.models import Signup
+from mygallery.models import Album, Image
 
 form = EmailSignupForm()
 
@@ -59,6 +60,7 @@ def get_category_count():
 class IndexView(View):
     form_signup = EmailSignupForm()
     form_login = LoginForm()
+    footerAldbum = Album()
 
     def get(self, request, *args, **kwargs):
         featured = Post.objects.filter(featured=True)
