@@ -9,6 +9,7 @@ from .forms import CommentForm, PostForm
 from .models import Post, Author, PostView
 from marketing.forms import EmailSignupForm
 from marketing.models import Signup
+from mygallery.models import Album, Image
 
 form = EmailSignupForm()
 
@@ -63,9 +64,11 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         featured = Post.objects.filter(featured=True)
         latest = Post.objects.order_by('-timestamp')[0:3]
+        gallimages = Image.objects.all
         context = {
             'object_list': featured,
             'latest': latest,
+            'gallimages': gallimages,
             'form_signup': self.form_signup,
             'form_login': self.form_login
         }

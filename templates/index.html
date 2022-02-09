@@ -130,27 +130,36 @@
     <!-- Gallery Section-->
     <section class="gallery no-padding">    
       <div class="row">
-        <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="{% static 'img/gallery-1.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-1.jpg' %}" alt="..." class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
-        </div>
-        <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="{% static 'img/gallery-2.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-2.jpg' %}" alt="..." class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
-        </div>
-        <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="img/gallery-3.jpg" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-3.jpg' %}" alt="..." class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
-        </div>
-        <div class="mix col-lg-3 col-md-3 col-sm-6">
-          <div class="item"><a href="img/gallery-4.jpg" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-4.jpg' %}" alt="..." class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
-        </div>
-        <!--if counter > 4 then hidden-->
-        <div class="mix col-lg-3 col-md-3 col-sm-6" hidden>
-          <div class="item"><a href="{% static 'img/gallery-1.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-1.jpg' %}" alt="..." class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
-        </div>
+        {% for gallimg in gallimages reversed %}
+          <!--
+          <div class="mix col-lg-3 col-md-3 col-sm-6">
+            <div class="item"><a href="{% static 'img/gallery-1.jpg' %}" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-1.jpg' %}" alt="..." class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+          </div>
+          -->
+          {% if forloop.counter <= 4 %}
+            <div class="mix col-lg-3 col-md-3 col-sm-6">
+              <div class="item"><a href="{{ gallimg.image.url }}" data-fancybox="gallery" class="image"><img src="{{ gallimg.image.url }}" alt="..." class="img-fluid">
+                  <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+            </div>
+          <!--
+          <div class="mix col-lg-3 col-md-3 col-sm-6">
+            <div class="item"><a href="img/gallery-3.jpg" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-3.jpg' %}" alt="..." class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+          </div>
+          <div class="mix col-lg-3 col-md-3 col-sm-6">
+            <div class="item"><a href="img/gallery-4.jpg" data-fancybox="gallery" class="image"><img src="{% static 'img/gallery-4.jpg' %}" alt="..." class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+          </div>
+          -->
+          <!--if counter > 4 then hidden-->
+          {% else %}
+            <div class="mix col-lg-3 col-md-3 col-sm-6" hidden>
+              <div class="item"><a href="{{ gallimg.image.url }}" data-fancybox="gallery" class="image"><img src="{{ gallimg.image.url }}" alt="..." class="img-fluid">
+                  <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </section>
 
