@@ -60,6 +60,7 @@ def get_category_count():
 class IndexView(View):
     form_signup = EmailSignupForm()
     form_login = LoginForm()
+    footerAldbum = Album()
 
     def get(self, request, *args, **kwargs):
         featured = Post.objects.filter(featured=True)
