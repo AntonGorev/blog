@@ -91,7 +91,7 @@ def index(request):
         email = request.POST["email"]
         new_signup = Signup()
         new_signup.email = email
-        new_signup.save()
+        new_signup.save() 
 
     context = {
         'object_list': featured,
